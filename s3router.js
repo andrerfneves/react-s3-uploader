@@ -92,6 +92,7 @@ function S3Router(options, middleware) {
             Key: fileKey,
             Expires: options.signatureExpires || 60,
             ContentType: mimeType,
+            GrantRead: options.GrantRead,
         };
 
         s3.getSignedUrl('putObject', params, function(err, data) {
